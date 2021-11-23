@@ -86,6 +86,11 @@ Here is our linear fit. At any point above the line is a normal curve with a sta
 
 ### Now add in scatterplot
 
+```{r}
+plot(SIMS~GRIP,data=data)
+```
+
+Just as in the former case, there seems to be an uphill trend to the right, indicative of a positive linear correlation. 
 
 ### Numerical results 
 
