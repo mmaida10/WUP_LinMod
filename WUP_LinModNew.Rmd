@@ -71,7 +71,16 @@ predict(model.1, mydata, interval="confidence")
 The confidence interval goes from 0.488 to 0.925.
 
 #### scatterplot with model fit
-  
+
+```{r}
+basicNN <- ggplot(data, aes(y=SIMS,x=ARM))
+```
+
+```{r}
+basicNN + geom_point() + geom_smooth(method=lm)
+``` 
+
+Here is our linear fit. At any point above the line is a normal curve with a standard deviation of 1.226.
 
 ## Model 2 SIM~GRIP
 
