@@ -43,8 +43,22 @@ This SIMS vs ARM scatterplot indicates a correlation between the two variables. 
 
 ### Numerical results
 
+```{r}
+cor(SIMS~ARM,data=data)
+```
+The correlation is 0.6860073, which is fairly well coordinated.
 
 ### Inferential  (Build model.1)
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=data)
+summary.lm(model.1)
+```
+The equation of the line is:   
+SIMS = m * ARMS + b   
+SIMS = 0.054563 * ARMS - 4.095160   
+
+Our adjusted R-squared is 0.467, which indicates that ARM explains under half of the variation of the SIMS data. In other words, it reduces the error the the mean model by 46.7%. The residual standard error was calculated at 1.226, so the standard deviation is 1.226. This means that the bond width is 4.904, which is decently narrow. This indicates that ARMS can likely be used to predict SIMS.
 
 #### Predict at target point
 
