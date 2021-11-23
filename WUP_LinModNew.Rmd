@@ -69,7 +69,7 @@ mydata = data.frame(GRIP = 94, ARM=88)
 predict(model.1, mydata, interval="prediction")
 ```
 
-The 95% confidence interval goes from -1.726 to 3.139--a distance of 4.865. This is 2 SD's up and 2 SD's down. Since the residual standard error is 1.226, which is approximately one fourth of the 95% confidence interval. 
+The 95% confidence interval goes from -1.726 to 3.139--a distance of 4.865. This is 2 SD's up and 2 SD's down. Since the residual standard error is 1.226, which is approximately one fourth of the 95% confidence interval, the . 
 
 #### scatterplot with model fit
 
@@ -135,12 +135,27 @@ Here is our linear fit for SIMS~GRIP. At any point above the line is a normal cu
 
 ### Numerical results (cor)
 
-`
-  
+```{r}
+cor(SIMS~ARM+GRIP,data=data)
+```
+
+The correlation between SIMS~ARM was 0.6860073. The correlation between SIMS~GRIP was  0.6398458. If these two correlations were considered fairly large, then the correlation between SIMS and ARM+GRIP is even greater, standing at 0.7326545. This is a notably large correlation.
+
 ### Inferential  (Build 2-dimentional model.3)
 
+```{r}
+model.3 <- lm(SIMS~GRIP + ARM,data=data)
+summary.lm(model.3)
+``` 
+SIMS = (0.024470 * GRIP) + (0.037311 * ARM) - 5.433871
+
 #### predict model.3 at target point
-  
+
+```{r}
+predict(model.3, mydata, interval="prediction")
+```
+
+When ARM is 88 and GRIP is 94, the prediction of SIMS is 0.149. The 95% confidence interval goes from -2.132373 to 2.431668--a distance of 4.564041. This is 2 standard deviations up and 2 standard deviations down. Since the residual standard error is 1.144, which is approximately one fourth of the 95% confidence interval.
 
 ## Comparing nested models ANOVA Test
 
