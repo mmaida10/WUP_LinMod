@@ -54,11 +54,12 @@ The correlation is 0.6860073, which is fairly well coordinated.
 model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
 ```
+
 The equation of the line is:   
 SIMS = m * ARMS + b   
 SIMS = 0.054563 * ARMS - 4.095160   
 
-Our adjusted R-squared is 0.467, which indicates that ARM explains under half of the variation of the SIMS data. In other words, it reduces the error the the mean model by 46.7%. The residual standard error was calculated at 1.226, so the standard deviation is 1.226. This means that the bond width is 4.904, which is decently narrow. This indicates that ARMS can likely be used to predict SIMS.
+Our adjusted R-squared is 0.467, which indicates that ARM explains under half of the variation of the SIMS data. In other words, it reduces the error of the mean model by 46.7%. The residual standard error was calculated at 1.226, so the standard deviation is 1.226. This means that the bond width is 4.904, which is decently narrow. This indicates that ARMS can likely be used to predict SIMS.
 
 #### Predict at target point
 
@@ -94,15 +95,41 @@ Just as in the former case, there seems to be an uphill trend to the right, indi
 
 ### Numerical results 
 
+```{r}
+cor(SIMS~GRIP,data=data)
+```
+
+The correlation in the prior example was 0.6860073, while the correlation with SIMS~GRIP is only 0.6398458. Still, this is a fairly large correlation.
 
 ### Inferential  (Build model.2)
-  
+
+```{r}
+model.2 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.2)
+```
+
+The equation of the line is:   
+SIMS = m * ARMS + b   
+SIMS = 0.045463 * ARMS - 4.809675
+
+Our adjusted R-squared is 0.4053, which indicates that GRIP explains less than half of the variation of the SIMS data. It reduces the error of the mean model by 40.53%. The residual standard error was calculated at 1.295, which is equal to the standard deviation. This means the bond width is 1.295 * 4, or 5.18. Because the bond width is so narrow, it can be used to predict SIMS. But because it is greater than the previous example with ARM, it is less accurate in its predictions.
 
 #### predict model.2 at target point
 
+```{r}
+predict(model.2, mydata, interval="prediction")
+```
+
+Here, the prediction of GRIP is 94 when the prediction of ARM is -0.536. The difference between the lower and upper limits is 5.143613, around 5.14.
+
 #### now add the model fit to our plot for model.2
   
+```{r}
+basicNT <- ggplot(data, aes(y=SIMS,x=GRIP))
+basicNT + geom_point() + geom_smooth(method=lm)
+``` 
 
+Here is our linear fit for SIMS~GRIP. At any point above the line is a normal curve with a standard deviation of 1.295. 
 
 ## Model 3 SIM~ARM+GRIP
 
