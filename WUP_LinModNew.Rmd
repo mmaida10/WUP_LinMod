@@ -181,4 +181,4 @@ Model 1 shows the amount of error in SIMS explained by GRIP, which was equal to 
 anova(model.1,model.2)
 ```
 
-The amount of error between Model 1 and 2 is 25.19. This indicates that ARM better explains SIMS than GRIP, since it has a noticeably lesser amount of error.
+While no P-values are available since they are nested models, you can still informally compare them. The amount of error between Model 1 and 2 is 25.19. This indicates that ARM better explains SIMS than GRIP, since it has a noticeably lesser amount of error. 
