@@ -65,10 +65,10 @@ Our adjusted R-squared is 0.467, which indicates that ARM explains under half of
 ```{r}
 SIMS = 0.054563 * 88 - 4.095160  
 mydata = data.frame(GRIP = 94, ARM=88)
-predict(model.1, mydata, interval="confidence")
+predict(model.1, mydata, interval="prediction")
 ```
 
-The confidence interval goes from 0.488 to 0.925.
+The 95% confidence interval goes from -1.726 to 3.139--a distance of 4.865. This is 2 SD's up and 2 SD's down. Since the residual standard error is 1.226, which is approximately one fourth of the 95% confidence interval. 
 
 #### scatterplot with model fit
 
