@@ -35,6 +35,12 @@ data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_str
 
 ### scatterplot
 
+```{r}
+plot(SIMS~ARM,data=data)
+```
+
+This SIMS vs ARM scatterplot indicates a correlation between the two variables. The graph shows an uphill trend; as ARM increases, SIMS increases. It is a moderately tight scatterplot, with a relatively consistent bond width of around 4. Since it represents a normal distribution, and normal distributions have 4 standard deviations from the top of the bond width to the bottom of the bond width, one standard deviation could be measured at around 1 from top to bottom. 
+
 ### Numerical results
 
 
