@@ -160,7 +160,25 @@ When ARM is 88 and GRIP is 94, the prediction of SIMS is 0.149. The 95% confiden
 ## Comparing nested models ANOVA Test
 
 ### Model.1 vs Model.3
+
+```{r}
+anova(model.1,model.3)
+```
+
+Model 1, which only depicts SIMS as explained by ARM, has an amount of error equal to 217.88. When SIMS was explained by GRIP as well as ARM, the amount of error decreased to 188.43. This shows that there is indeed a significant difference between the two models. Thus, we accept the null hypothesis since there is a significant statistical difference. 
+
 ### Model.2 vs Model.3
+
+```{r}
+anova(model.2,model.3)
+```
+
+Model 1 shows the amount of error in SIMS explained by GRIP, which was equal to 243.07. In contrast, SIMS explained by GRIP + ARM has an amount of error of 188.43, which is significantly lower. Thus, we accept the null hypothesis: there is a clear statistical difference between the two models.
 
 ## Informally compare Model.1 with model.2
 
+```{r}
+anova(model.1,model.2)
+```
+
+The amount of error between Model 1 and 2 is 25.19. This indicates that ARM better explains SIMS than GRIP, since it has a noticeably lesser amount of error.
